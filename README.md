@@ -1,4 +1,4 @@
-# Redux Toolkit
+# Shopping Cart - Redux Toolkit
 
 #### React Course
 
