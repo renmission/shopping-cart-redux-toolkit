@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // import cartItems from "../../cartItems";
 import axios from 'axios';
+import { openModal } from "../modal/modalSlice";
 
 const url = "http://localhost:3000/products";
 
@@ -13,11 +14,12 @@ const initialState = {
 
 export const getCartItems = createAsyncThunk("cart/getCartItems", async (name, thunkAPI) => {
   try {
-    console.log(thunkAPI.getState());
+    // console.log(thunkAPI.getState());
+    // thunkAPI.dispatch(openModal());
     const res = await axios(url);
     return res.data;
   } catch (error) {
-    console.log(error);
+    return thunkAPI.rejectWithValue('Something went wrong');
   }
 });
 
